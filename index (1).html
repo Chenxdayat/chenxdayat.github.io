@@ -6,7 +6,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Narrow Jumbotron Template for Bootstrap</title>
+    <title>CHENX DAYAT</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../css/editor.css" rel="stylesheet">
@@ -18,6 +18,154 @@
   <body>
 
      <!-- /container -->
+      <div class="ws">
+<div class="tanggal">
+<script>
+var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
+var date = new Date();
+var day = date.getDate();
+var month = date.getMonth();
+var thisDay = date.getDay(),
+    thisDay = myDays[thisDay];
+var yy = date.getYear();
+var year = (yy < 1000) ? yy + 1900 : yy;
+
+document.write(thisDay + ', ' + day + ' ' + months[month] + ' ' + year);
+</script>
+</div>
+<style>
+.ws {
+    padding: 0;
+    position: relative;
+    width: 320px;
+}
+
+.ws a {
+  text-decoration: none;
+}
+.ws .MPwidget {
+    width: 100%;
+    background: rgba(250, 250, 250, 0);
+    margin: 10px 0;
+    box-shadow: 0 0 0 rgba(250, 250, 250, 0);
+}
+
+.ws .MPheader {
+    background: rgba(250, 250, 250, 0);
+    padding: 0;
+    min-height: 30px;
+    margin: 0 0 30px;
+}
+
+.ws .MPheader .logo {
+    display: none;
+}
+
+.ws .MPheader .title{
+    padding: 10px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+}
+
+.ws .MPwidget .title a,
+.ws .tanggal {
+    color: #000;
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    pointer-events: none;
+}
+.ws .tanggal {
+    position: absolute;
+    left: 10px;
+    top: 40px;
+    z-index: 20;
+    color: #dd3333;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    font-size: 16px;
+}
+.ws .MPtimetable tr:first-child {
+    display: none;
+}
+
+.ws .MPtimetable tr {
+    display: inline-table;
+    width: 100%;
+    position: relative;
+}
+
+.ws .MPtimetable td {
+    position: relative;
+    display: table-cell;
+    width: 50%;
+    padding: 5px;
+    text-align: left;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+    background: rgba(250, 250, 250, 0);
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0);
+}
+
+.ws .MPtimetable tr td:before {
+    font-size: 16px;
+    text-align: left;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    right: 0;
+    color: #000;
+    height: 30px;
+    line-height: 30px;
+}
+
+.ws .MPtimetable tr:nth-child(2) td:nth-child(1):before {
+    content: "SUBUH";
+}
+
+.ws .MPtimetable tr:nth-child(3) td:nth-child(1):before {
+    content: "TERBIT";
+}
+
+.ws .MPtimetable tr:nth-child(4) td:nth-child(1):before {
+    content: "DZUHUR";
+}
+
+.ws .MPtimetable tr:nth-child(5) td:nth-child(1):before {
+    content: "ASHAR";
+}
+
+.ws .MPtimetable tr:nth-child(6) td:nth-child(1):before {
+    content: "MAGHRIB";
+}
+
+.ws .MPtimetable tr:nth-child(7) td:nth-child(1):before {
+    content: "ISYA";
+}
+.ws .MPtimetable td:nth-child(1) {
+    border-right: 1px solid #dedede
+}
+.ws .MPtimetable td:nth-child(2) {
+    color: #7bae91;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.ws .MPtimetable tr:nth-child(2n) {
+    background-color: #f7f7f7;
+}
+
+.ws .MPfooter {
+    display: none;
+}
+</style>
+<script src="https://www.muslimpro.com/muslimprowidget.js?cityid=1650077&amp;language=id&amp;timeformat=24" async=""></script>
+</div>
   
 
 </body>
