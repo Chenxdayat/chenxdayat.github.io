@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.0.0/shaka-player.min.js"></script>
+</head>
+<body>
+  <video id="video" width="640" height="360" controls autoplay></video>
+  <script>
+    async function initPlayer() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const manifestUrl = urlParams.get('mpd');
+
+      if (!manifestUrl) {
+        console.error('No MPD URL provided!');
+        return;
+      }
+
+      const video = document.getElementById('video');
+      const player = new shaka.Player(video);
+
+      try {
+        await player.load(manifestUrl); // Gunakan URL MPD dari parameter
+      } catch (e) {
+        console.error('Error loading video:', e);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initPlayer);
+  </script>
+</body>
+</html>
