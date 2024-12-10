@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.0.0/shaka-player.min.js"></script>
+</head>
+<body>
+  <video id="video" width="640" controls autoplay></video>
+  <script>
+    async function initPlayer() {
+      const video = document.getElementById('video');
+      const player = new shaka.Player(video);
+
+      player.configure({
+        drm: {
+          servers: {
+            'com.widevine.alpha': 'https://your-license-server-url.com',
+          },
+        },
+      });
+
+      const keyId = '0005c37ab85893a379c1e1e5ed60fcf0';
+      const keyHex = 'b60a9aa6c55026adfc3f47136ce64924';
+
+      player.configure({
+        drm: {
+          advanced: {
+            'com.widevine.alpha': {
+              serverCertificate: keyHex, 
+            },
+          },
+        },
+      });
+
+      try {
+        await player.load('https://skytest.starlive.workers.dev/https://linear019-gb-dash1-prd-ak.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportsfootball)/manifest_720-120.mpd'); // Ubah URL sesuai file Anda
+      } catch (e) {
+        console.error('Error loading video:', e);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initPlayer);
+  </script>
+</body>
+</html>
