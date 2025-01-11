@@ -80,13 +80,9 @@ body::before {
         aspectratio: "16:9",
         autostart: true,
 			 logo: {
- 				file: 'https://bit.ly/4hQ7CRI',
- 				link: '',	
-               			position: 'absolute',
-				bottom: '10px',
-				left: '10px',
-				width: '100px',
-				height: 'auto',
+ 					 file: 'https://bit.ly/4hQ7CRI',
+ 					 link: '',	
+               			position: 'bottom-left',
   					},
 			cast:{},
 			sharing: {}
