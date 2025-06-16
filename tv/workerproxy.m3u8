@@ -1,0 +1,34 @@
+addEventListener("fetch", event => {
+  event.respondWith(handleRequest(event.request))
+})
+
+async function handleRequest(request) {
+  const url = new URL(request.url)
+  const target = url.searchParams.get("url")
+
+  if (!target) {
+    return new Response("Parameter ?url= diperlukan", { status: 400 })
+  }
+
+  try {
+    const res = await fetch(target, {
+      headers: {
+        "User-Agent": "Mozilla/5.0", // Kadang perlu agar server target merespons
+        "Referer": target,            // Tambahan opsional
+        "Origin": target
+      }
+    })
+
+    const contentType = res.headers.get("content-type") || "application/vnd.apple.mpegurl"
+    return new Response(res.body, {
+      status: res.status,
+      headers: {
+        "Content-Type": contentType,
+        "Access-Control-Allow-Origin": "*", // Agar bisa diputar dari mana saja
+        "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
+        "Access-Control-Allow-Headers": "*"
+      }
+    })
+  } catch (e) {
+    return new Response("Gagal memuat stream: " + e.message, { status: 502 })
+  }
