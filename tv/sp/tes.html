@@ -1,0 +1,68 @@
+<div class="video-container">
+  
+  <style>
+  .stream-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Sesuaikan ukuran maksimal */
+    margin: auto;
+  }
+  
+  .stream-container iframe {
+    width: 100%;
+    height: 450px; /* Sesuaikan tinggi */
+    border: none;
+  }
+
+  .stream-logo {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 50px; /* Ukuran logo */
+    opacity: 3.0;
+  }
+
+  @media (max-width: 600px) {
+    .stream-container iframe {
+      height: 250px; /* Ukuran lebih kecil di layar HP */
+    }
+
+    .stream-logo {
+      width: 50px;
+    }
+  }
+</style>
+
+<div class="stream-container">
+  <iframe id="streamFrame" src="https://chenxdayat.github.io/tv/sports/ch473.m3u8" allowfullscreen></iframe>
+  <img src="https://bit.ly/3PJhGz7" alt="Logo" class="stream-logo">
+</div>
+
+  <style>
+/* Atur video agar full layar */
+.video-container {
+    position: fixed; /* Agar menempel pada layar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999; /* Prioritas tampil */
+    background: black; /* Latar belakang hitam */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 225px;
+    border: none;
+}
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+</style>
+  
