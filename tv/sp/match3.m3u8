@@ -1,4 +1,4 @@
 #EXTM3U
 #EXT-X-VERSI:3
 #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1200000,FRAME-RATE=25.000,CODECS="avc1.4d401e,mp4a.40.2",RESOLUSI=640x480
-https://geogersr.itilstrem.workers.dev/http://185.57.68.33:8091/110/playlist.m3u8
+http://202.80.222.20/cdn/iptv/Tvod/001/channel2000143/1024.m3u8
