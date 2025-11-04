@@ -1,0 +1,4 @@
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-STREAM-INF:BANDWIDTH=2800000,RESOLUTION=1920x1080
+http://tbtv.me:2095/play/live.php?mac=00:1A:79:E7:32:0C&stream=546937&extension=m3u8
