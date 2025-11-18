@@ -1,4 +1,5 @@
 #EXTM3U
 #EXT-X-VERSION:3
-#EXT-X-STREAM-INF:BANDWIDTH=2800000,RESOLUTION=1920x1080
-https://tv-max4k-us.aayushmansinghrajpurohit95.workers.dev/6920.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=2800000
+http://31.220.3.103:2095/play/live.php?mac=00:1A:79:E7:32:0C&stream=87341&extension=m3u8
+#http://v3tv.live:80/play/live.php?mac=00:1A:79:F5:5F:02&stream=62632&extension=m3u8
