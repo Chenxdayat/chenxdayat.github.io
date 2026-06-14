@@ -3,3 +3,4 @@
 # High Quality Stream (2.1 Mbps)
 #EXT-X-STREAM-INF:BANDWIDTH=2700000,CODECS="avc1.77.30,mp4a.40.2",RESOLUTION=ch1
 http://mag.jee-ott.xyz:80/play/live.php?mac=00:1B:79:F0:F6:A2&stream=30581&extension=ts
+http://line.godofiptv.com:80/play/live.php?mac=00:1B:79:F0:F6:A2&stream=30581&extension=ts
