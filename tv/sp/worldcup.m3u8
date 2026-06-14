@@ -2,4 +2,4 @@
 #EXT-X-VERSION:3
 # High Quality Stream (2.1 Mbps)
 #EXT-X-STREAM-INF:BANDWIDTH=2700000,CODECS="avc1.77.30,mp4a.40.2",RESOLUTION=ch1
-https://yyi7tewa2x.3ppnkog.com/xstream/monomax-1/playlist.m3u8
+https://cors-proxy.wangzhishi.net/http://cdn.tv-rds.workers.dev/ZiggoSport.m3u8
