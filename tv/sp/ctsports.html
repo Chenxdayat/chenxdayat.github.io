@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JWPlayer dengan Watermark Fullscreen</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: black;
+    }
+    #player {
+      width: 100%;
+      height: 100%;
+    }
+    /* Watermark di dalam player container */
+    .jw-watermark-text {
+      position: absolute;
+      bottom: 1px;
+      right: 5%;
+      color: white;
+      font-size: 11px;
+      font-weight: bold;
+      text-shadow: 2px 2px 3px #000;
+      z-index: 9999;
+      pointer-events: none;
+      font-family: Cambria,"Times New Roman",serif;
+    }
+
+    @keyframes fadeMove {
+      from { opacity: 0.7; transform: translateY(0); }
+      to { opacity: 1; transform: translateY(-5px); }
+    }
+  </style>
+  <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwplayer.js"></script>
+  <script>
+    jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+  </script>
+</head>
+<body>
+  
+  <!-- Referrer Protection -->
+<script>
+  var meta = document.createElement('meta');
+  meta.name = 'referrer';
+  meta.content = 'no-referrer';
+  document.getElementsByTagName('head')[0].appendChild(meta);
+</script>
+
+  <div id="player"></div>
+
+  <script>
+    const player = jwplayer("player");
+
+    player.setup({
+      playlist: [{
+        image: "https://bit.ly/3HUnXYf",
+        sources: [{
+          type: "dash",
+          file: "https://dash2.antik.sk/stream/nvidia_ct_sport/playlist_cenc.mpd",
+          drm: {
+            clearkey: {
+              keyId: "11223344556677889900112233445566",
+              key: "4b80724d0ef86bcb2c21f7999d67739d"
+            }
+          },
+          label: "HD"
+        }]
+      }],
+      logo: {
+        file: "",
+        position: "bottom-right",
+        link: ""
+      },
+      width: "100%",
+      height: "100%",
+      aspectratio: "16:9",
+      autostart: true,
+      controls: true,
+      mute: true,
+      stretching: "uniform"
+    });
+
+    player.on('ready', function() {
+      const container = document.querySelector("#player .jw-wrapper");
+      const watermark = document.createElement("div");
+      watermark.innerText = "CHENX-DAYAT";
+      watermark.className = "jw-watermark-text top-right"; // Ganti posisi di sini
+      container.appendChild(watermark);
+    });
+  </script>
+  
+  <script>
+    function setChannel(url) {
+        localStorage.setItem("tvPlayer", url);
+        window.open("https://chenxdayat.biz.id", "_blank");
+    }
+</script>
+
+</body>
+</html>
