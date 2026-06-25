@@ -1,0 +1,72 @@
+<!--DOCTYPE html-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CHENXDAYAT</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script>
+  <script type='text/javascript' src='//dustyrender.com/fe/15/80/fe15803a5919f7956c2c3a4b9ac6f410.js'></script>
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        .jwplayer {
+            position: absolute !important;
+        }
+
+        .jwplayer.jw-flag-aspect-mode {
+            min-height: 100%;
+            max-height: 100%;
+        }
+      
+    </style>
+</head>
+
+<body>
+    <div id="jwplayerDiv"></div>
+    <script type="text/javascript">
+        // Setup JWPlayer
+        jwplayer("jwplayerDiv").setup({
+            file: "https://cdnbal1.indihometv.com/atm/DASH/sctv/manifest.mpd",
+            position: 'bottom',
+            autostart: true,
+            stretching: "",
+            width: "100%",
+          height: "100%",
+        aspectratio: "16:9",
+        autostart: true,
+			 logo: {
+ 					 file: '',
+ 					 link: '',
+  						position: 'top-right'
+  					},
+			cast:{},
+			sharing: {}
+         
+    });
+      
+      jwplayer().on("ready", function(){
+
+   const text = document.createElement("div");
+
+   text.innerHTML = "CHENX-DAYAT";
+
+   text.style.position = "absolute";
+   text.style.bottom = "1px";
+   text.style.right = "25px";
+   text.style.color = "#fff";
+   text.style.fontWeight = "bold";
+   text.style.fontSize = "12px";
+   text.style.fontFamily = "Cambria, Times New Roman,serif"
+   text.style.zIndex = "9999";
+   text.style.textShadow = "1px 1px 3px #000";
+
+   document.querySelector(".jw-media").appendChild(text);
+
+});
+    </script>
+</body>
+</html>
