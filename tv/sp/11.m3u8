@@ -1,11 +1,4 @@
 #EXTM3U
 #EXT-X-VERSION:3
 #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2700000
-http://zan-zan.sbs:80/play/live.php?mac=00:1A:79:00:47:79&stream=601837&extension=m3u8
-
-
-http://v3tv.live:80/play/live.php?mac=00:1A:79:05:8B:80&stream=287242&extension=m3u8
-http://stalker.klma2023.net:80/play/live.php?mac=00:1B:79:F8:59:0E&stream=12493&extension=m3u8
-
-#fhd
-http://v3tv.live:80/play/live.php?mac=00:1A:79:F5:5F:02&stream=388&extension=m3u8
+https://livecdn.euw1-0008.jwplive.com/live/sites/fM9jRrkn/media/F2QEJY6l/live.isml/.m3u8
