@@ -1,0 +1,124 @@
+<style>
+  /* KONTEN UTAMA: Kondisi Player di Desktop / HP Posisi Tegak (Portrait) */
+  .tv-frame-container {
+    display: none;
+    width: 100%;
+    
+    /* GANTI URL DI BAWAH INI DENGAN LINK GAMBAR LOADING ANDA */
+    background-image: url('https://bit.ly/3T0HcVy'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; /* Memastikan gambar memenuhi area player */
+    
+    backdrop-filter: blur(12px) saturate(180%); /* Efek kaca buram premium */
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    overflow: hidden;
+    margin: 0 auto;
+    z-index: 1;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px; /* Sudut lebih melengkung halus */
+    
+    /* Efek Menonjol (3D Glass Look) */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Kilauan di tepi kaca */
+    box-shadow: 
+      0 8px 32px 0 rgba(0, 0, 0, 0.37), /* Bayangan dalam ke luar */
+      inset 0 1px 1px rgba(255, 255, 255, 0.2); /* Highlight putih di dalam atas */
+  }
+
+  /* Memastikan elemen iframe mengisi penuh wadah hitam */
+  .tv-frame-container iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent; /* Membuat iframe transparan saat loading agar gambar terlihat */
+  }
+
+  .tv-button {
+    display: none;
+    margin: 0 auto;
+    padding: 0;
+    background: #ff4500;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 10px;
+    margin-bottom: 0;
+  }
+
+  /* Pengaturan responsif saat posisi HP Tegak (Portrait Mobile) */
+  @media (max-width: 767px) {
+    .tv-frame-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      z-index: 9999;
+    }
+  }
+
+  @media (min-width: 450px) {
+    .tv-frame-container {
+      max-width: 600px;
+    }
+  }
+
+  /* ======================================================================= */
+  /* KUNCI FULLSCREEN LANDSCAPE: SIMULASI CSS KETAT SAAT HP DIMIRINGKAN     */
+  /* ======================================================================= */
+  @media (max-width: 991px) and (orientation: landscape) {
+    .tv-frame-container {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      bottom: 0 !important;
+      right: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      max-width: 100vw !important;
+      max-height: 100vh !important;
+      aspect-ratio: auto !important; /* Hapus rasio 16:9 agar memenuhi layar miring */
+      z-index: 9999999 !important; /* Naikkan ke lapisan paling atas menutupi template blog */
+    }
+    
+    body {
+      overflow: hidden !important; /* Menghilangkan scrollbar blog saat nonton */
+    }
+  }
+
+  /* Gaya dekorasi bawaan menu tab Anda */
+  .tab-container { margin: 0 auto; max-width: 100%; font-family: Arial, sans-serif; }
+  .tab-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; margin-bottom: 0; }
+  .tab-buttons button { padding: 8px 10px; background-color: #000; color: #fff; border: none; border-radius: 8px; font-size: 12px; font-weight: bold; cursor: pointer; transition: background 0.3s; }
+  .tab-buttons button:hover { background-color: #444; }
+  .tab-content { display: none; animation: fadeIn 0.3s ease-in-out; justify-content: center; flex-wrap: wrap; gap: 5px; }
+  .tab-content.active { display: flex; }
+  .tv-channel { text-align: center; width: 60px; cursor: pointer; transition: transform 0.2s ease; }
+  .tv-channel img { width: 100%; border-radius: 8px; border: 1px solid #ccc; }
+  .tv-channel:hover { transform: scale(1.05); }
+  @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+  @media (max-width: 480px) { .tv-channel { width: 50px; } .tab-buttons button { font-size: 11px; padding: 6px 10px; } }
+</style>
+
+<!-- AREA PEMUTAR PERBAIKAN TOTAL (ANTI-ERROR 102630) -->
+<div style="text-align: center;">
+  <div class="tv-button" onclick="showTVPlayer()">
+    ▶️ TV Streaming
+  </div>
+
+  <div id="tvFrameContainer" class="tv-frame-container">
+    <iframe id="tvPlayer" width="100%" height="100%" 
+            allow="autoplay; fullscreen; encrypted-media" 
+            allowfullscreen="true"
+            frameborder="0" src="">
+    </iframe>
+  </div>
+</div>
