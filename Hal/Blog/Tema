@@ -1,0 +1,636 @@
+<html>
+<head>
+</head>
+<body>
+
+<style>
+  .tab-menu {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: #ffff00;
+    font-weight: bold;
+  }
+  .tab-menu button {
+    padding: 8px 10px;
+    background: #000080;
+    border: none;
+    border: 2px solid #DCDCDC;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+    box-shadow: 0 4px 5px rgba(1,2,3,0.5);
+  }
+  .tab-menu button.active {
+    background: #000000;
+    color: yellow;
+  }
+  .tab-content {
+    display: none;
+  }
+  .tab-content.active {
+    display: block;
+  }
+  .match-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+  }
+  .match-card {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 0px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    background-color: #feffff;
+    font-family: Cambria,"Times New Roman",serif;
+    box-shadow: 0 3px 5px rgba(1,2,3,0.5);
+    position: relative;
+  }
+  .match-time {
+    text-align: center;
+    color: #800000;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Cambria,"Times New Roman",serif;
+    line-height: 1em;
+    margin-bottom: 4px;
+  }
+  .league {
+    display: block;
+    text-align: center;
+    color: #000080;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Cambria,"Times New Roman",serif;
+    line-height: 1em;
+    margin-bottom: 4px;
+  }
+  .teams {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    line-height: 1em;
+    margin-bottom: 3px;
+  }
+  .team {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1em;
+  }
+  .team-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 7px;
+  }
+  .team-name {
+    font-size: 12px;
+    color: #000000;
+    font-weight: bold;
+  }
+  .vs {
+    font-size: 50px;
+    font-weight: bold;
+    color: #00008B;
+  }
+  .channel-buttons {
+    text-align: center;
+    margin-top: 5px;
+  }
+  .channel-buttons button {
+    background-color: #000000;
+    color: white;
+    border: 2px solid #F0FFF0;
+    border-radius: 7px;
+    margin: 3px 2px;
+    padding: 4px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 5px rgba(1,2,3,0.4);
+    transition: 0.3s;
+  }
+  .channel-buttons button:hover {
+    background-color: #000080;
+  }
+  #tvFrameContainer {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  #tvPlayer {
+    width: 100%;
+    max-width: 720px;
+    height: 100%;
+    border: none;
+    border-radius: 0px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  }
+  .pembatas {
+    border: 0;
+    height: 8px;
+    background: linear-gradient(to right, #800080, #663399);
+    margin: 8px 0;
+    box-shadow: 0 5px 7px rgba(2,3,4,0.5);
+    border-radius: 10px;
+  }
+  
+  /* TV Logo Grid */
+
+.tv-logo-item{
+  width:70px;
+  height:50px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.tv-logo-item:hover{
+  transform:scale(1.08);
+}
+
+.tv-logo-item img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  border-radius:10px;
+  background:var(--bodyB,#B0C4DE);
+  padding:4px;
+  box-shadow: 0 5px 7px rgba(2,3,4,0.5);
+}
+  
+  /* ===== DARK MODE ===== */
+
+.darkMode .match-card,
+.drK .match-card{
+    background:#1f1f1f !important;
+    border:1px solid #666 !important;
+    color:#fff !important;
+}
+
+.darkMode .match-time,
+.drK .match-time{
+    color:#FFFACD !important;
+}
+
+.darkMode .league,
+.drK .league{
+    color:#FFFF00 !important;
+}
+
+.darkMode .team-name,
+.drK .team-name{
+    color:#ffffff !important;
+}
+
+.darkMode .vs,
+.drK .vs{
+    color:#00e5ff !important;
+}
+
+.darkMode .tab-menu button,
+.drK .tab-menu button{
+    background:#222 !important;
+    border-color:#FFEFD5 !important;
+    color:#fff !important;
+}
+
+.darkMode .tab-menu button.active,
+.drK .tab-menu button.active{
+    background:#F0F8FF !important;
+    color:#000 !important;
+}
+
+.darkMode .channel-buttons button,
+.drK .channel-buttons button{
+    background:#FFFAF0 !important;
+    border-color:#DEB887 !important;
+    color:#000 !important;
+}
+
+.darkMode .channel-buttons button:hover,
+.drK .channel-buttons button:hover{
+    background:#F5F5F5 !important;
+}
+
+.darkMode .pembatas,
+.drK .pembatas{
+    background:linear-gradient(to right,#00bcd4,#3f51b5) !important;
+}
+ </style>
+
+<div class="waktu-wrapper">
+  <div id="waktu-blogger"></div>
+</div>
+
+<style>
+.waktu-wrapper{
+  text-align:center;
+  margin-bottom:12px;
+  font-family:Cambria,"Times New Roman",serif;
+}
+
+#waktu-blogger{
+  font-size:14px;
+  font-weight:bold;
+  color:#191970;
+  opacity:0;
+  animation:fadeIn 1.5s ease forwards;
+  text-shadow:0 0 4px rgba(0,0,0,.1);
+}
+
+/* Dark Mode Median UI */
+.darkMode #waktu-blogger,
+.drK #waktu-blogger{
+  color:#ffffff !important;
+  text-shadow:0 0 6px rgba(255,255,255,.2);
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(-8px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+</style>
+
+<script>
+function getZonaIndonesia() {
+
+  const zona = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+  const WITA = [
+    "Asia/Makassar",
+    "Asia/Ujung_Pandang"
+  ];
+
+  const WIT = [
+    "Asia/Jayapura"
+  ];
+
+  if (WITA.includes(zona)) {
+    return {
+      label: "WITA",
+      offset: 8
+    };
+  }
+
+  if (WIT.includes(zona)) {
+    return {
+      label: "WIT",
+      offset: 9
+    };
+  }
+
+  return {
+    label: "WIB",
+    offset: 7
+  };
+}
+
+function updateWaktu(){
+
+  const hariList = [
+    "Minggu","Senin","Selasa",
+    "Rabu","Kamis","Jumat","Sabtu"
+  ];
+
+  const bulanList = [
+    "Januari","Februari","Maret",
+    "April","Mei","Juni",
+    "Juli","Agustus","September",
+    "Oktober","November","Desember"
+  ];
+
+  const zona = getZonaIndonesia();
+
+  const sekarang = new Date();
+
+  const utc = sekarang.getTime() +
+              (sekarang.getTimezoneOffset() * 60000);
+
+  const lokal = new Date(
+    utc + (3600000 * zona.offset)
+  );
+
+  const hari = hariList[lokal.getDay()];
+  const tanggal = lokal.getDate();
+  const bulan = bulanList[lokal.getMonth()];
+  const tahun = lokal.getFullYear();
+
+  const jam = String(lokal.getHours()).padStart(2,"0");
+  const menit = String(lokal.getMinutes()).padStart(2,"0");
+  const detik = String(lokal.getSeconds()).padStart(2,"0");
+
+  document.getElementById("waktu-blogger").innerHTML =
+    `${hari}, ${tanggal} ${bulan} ${tahun} | ${jam}:${menit}:${detik} ${zona.label}`;
+}
+
+updateWaktu();
+setInterval(updateWaktu,1000);
+</script>
+
+<hr class="pembatas" />
+
+<!-- TEMPAT NAVIGASI MENU TAB DAN KONTEN ANDA -->
+<div class="tab-menu" id="tabMenu"></div>
+<div id="tabContents"></div>
+
+<script>
+  const blogJsonURL = 'https://tv-chenxdayat.blogspot.com/p/backup-json-file-tv.html';
+
+  async function loadJsonAndRender() {
+    try {
+      const response = await fetch(blogJsonURL);
+      if (!response.ok) throw new Error('Gagal terhubung ke halaman data blog');
+      
+      const htmlText = await response.text();
+
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlText, 'text/html');
+      
+      const jsonScript = doc.querySelector('script[type="application/json"]');
+
+      if (!jsonScript || !jsonScript.textContent.trim()) {
+        throw new Error('Tag <script type="application/json"> tidak ditemukan atau isinya kosong di blog penyimpan.');
+      }
+
+      const jsonData = JSON.parse(jsonScript.textContent);
+      renderTabs(jsonData);
+
+    } catch (error) {
+      console.error("Gagal memuat JSON dari Blog:", error);
+      
+      const tabMenu = document.getElementById('tabMenu');
+      if(tabMenu) {
+        tabMenu.innerHTML = `<p style="color:red; font-size:12px; padding:10px;">Gagal memuat Menu Tab. Alasan: ${error.message}</p>`;
+      }
+    }
+  }
+
+  function setPlayerUrlProxy(urlTarget) {
+    const frameContainer = document.getElementById('tvFrameContainer');
+    const iframe = document.getElementById('tvPlayer');
+
+    iframe.src = '';
+    
+    setTimeout(() => {
+      iframe.src = urlTarget;
+    }, 50);
+    
+    frameContainer.style.display = 'block';
+    
+    if (window.innerWidth > 767) {
+      frameContainer.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // =======================================================================
+  // PERBAIKAN UTAMA: Mengubah Jam Sekaligus Tanggal Otomatis Jika Lewat Malam
+  // =======================================================================
+  function konversiWaktuDanTanggalLokal(jamMentah, tanggalMentah) {
+    try {
+      // 1. Pecah Jam dan Menit
+      let pemisahJam = jamMentah.includes('.') ? '.' : ':';
+      const partJam = jamMentah.trim().split(pemisahJam);
+      if (partJam.length !== 2) return `${jamMentah} | ${tanggalMentah}`;
+      
+      const jam = String(partJam[0]).padStart(2, '0');
+      const menit = String(partJam[1]).padStart(2, '0');
+
+      // 2. Ubah Teks Tanggal Indonesia (Contoh: "3 Agustus 2026") Menjadi Angka Komputer
+      const bulanList = ["januari", "februari", "maret", "april", "mei", "juni", "juli", "agustus", "september", "oktober", "november", "desember"];
+      
+      const partTgl = tanggalMentah.trim().split(' ');
+      if (partTgl.length !== 3) return `${jamMentah} | ${tanggalMentah}`; // Jaga-jaga jika format salah
+
+      const tglAngka = String(partTgl[0]).padStart(2, '0');
+      const namaBulan = partTgl[1].toLowerCase();
+      const thnAngka = partTgl[2];
+
+      // Cari urutan angka bulan (01 sampai 12)
+      let indexBulan = bulanList.indexOf(namaBulan);
+      if (indexBulan === -1) indexBulan = 0; // Fallback ke Januari jika tidak cocok
+      const blnAngka = String(indexBulan + 1).padStart(2, '0');
+
+      // 3. Satukan Menjadi Standar Waktu ISO Berbasis WIB (+07:00)
+      // Format hasil: "2026-08-03T17:30:00+07:00"
+      const formatIsoWib = `${thnAngka}-${blnAngka}-${tglAngka}T${jam}:${menit}:00+07:00`;
+      const objekTanggalLokal = new Date(formatIsoWib);
+
+      if (isNaN(objekTanggalLokal.getTime())) return `${jamMentah} | ${tanggalMentah}`;
+
+      // 4. Ambil Nilai Hasil Kalkulasi Waktu yang Baru Sesuai HP Pengunjung
+      const jamHasil = String(objekTanggalLokal.getHours()).padStart(2, '0');
+      const menitHasil = String(objekTanggalLokal.getMinutes()).padStart(2, '0');
+      const tglHasil = objekTanggalLokal.getDate();
+      const blnHasilNama = bulanList[objekTanggalLokal.getMonth()];
+      const thnHasil = objekTanggalLokal.getFullYear();
+
+      // Huruf kapital awal nama bulan (contoh: agustus -> Agustus)
+      const blnHasilKapital = blnHasilNama.charAt(0).toUpperCase() + blnHasilNama.slice(1);
+
+      // 5. Deteksi Wilayah Label Waktu
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      let labelZona = "WIB";
+      if (tz.includes("Makassar") || tz.includes("Manado") || tz.includes("Denpasar") || tz.includes("Makasar")) {
+        labelZona = "WITA";
+      } else if (tz.includes("Jayapura") || tz.includes("Ambon")) {
+        labelZona = "WIT";
+      }
+
+      // Gabungkan hasil akhir: "19.30 WITA | 3 Agustus 2026" atau "01.30 WIT | 4 Agustus 2026"
+      return `${jamHasil}.${menitHasil} ${labelZona} | ${tglHasil} ${blnHasilKapital} ${thnHasil}`;
+
+    } catch (e) {
+      return `${jamMentah} | ${tanggalMentah}`;
+    }
+  }
+
+  function renderTabs(jsonData) {
+    const kategoriLabels = { 
+      bola: 'SEPAKBOLA', 
+      voli: 'VOLLEY', 
+      balapan: 'BALAP', 
+      other: 'TV Biasa' 
+    };
+    
+    const tabMenu = document.getElementById('tabMenu');
+    const tabContents = document.getElementById('tabContents');
+    tabMenu.innerHTML = ''; 
+    tabContents.innerHTML = '';
+
+    let firstTab = true;
+    for (const kategori in jsonData) {
+      const btn = document.createElement('button');
+      btn.textContent = kategoriLabels[kategori] || kategori.toUpperCase();
+      btn.className = 'tablink' + (firstTab ? ' active' : '');
+      btn.dataset.tab = kategori;
+      btn.onclick = (e) => { openTab(e.target.dataset.tab); };
+      tabMenu.appendChild(btn);
+      firstTab = false;
+    }
+
+    firstTab = true;
+    for (const kategori in jsonData) {
+      const tabDiv = document.createElement('div');
+      tabDiv.id = kategori;
+      tabDiv.className = 'tab-content' + (firstTab ? ' active' : '');
+      const container = document.createElement('div');
+      container.className = 'match-container';
+
+      jsonData[kategori].forEach(item => {
+        // MODE TV CHANNEL (Hanya Logo)
+        if(item.logo && item.url){
+          const logoBox = document.createElement('div');
+          logoBox.className = 'tv-logo-item';
+          logoBox.innerHTML = `<img src="${item.logo}" alt="TV Channel" loading="lazy">`;
+
+          logoBox.onclick = () => {
+            setPlayerUrlProxy(item.url);
+          };
+          container.appendChild(logoBox);
+
+        } else {
+
+          let tampilanWaktuLengkap = "";
+          
+          if (item.date) {
+            if (item.date.includes('|')) {
+              const bagianWaktu = item.date.split('|');
+              const jamMentah = bagianWaktu[0].trim(); 
+              const tanggalMentah = bagianWaktu[1].trim(); 
+              
+              // PERBAIKAN: Melempar jam dan tanggal secara bersamaan ke dalam mesin kalkulator
+              tampilanWaktuLengkap = konversiWaktuDanTanggalLokal(jamMentah, tanggalMentah);
+            } else {
+              // Jika data di JSON Anda suatu saat lupa tidak diberi pemisah tanggal, tetap aman
+              tampilanWaktuLengkap = item.date; 
+            }
+          }
+
+          const card = document.createElement('div');
+          card.className = 'match-card';
+          card.innerHTML = `
+            <div class="match-time">${tampilanWaktuLengkap}</div>
+            <div class="league">${item.league}</div>
+            <div class="teams">
+              <div class="team">
+                <img src="${item.logo1}" alt="${item.team1}" class="team-logo">
+                <span class="team-name">${item.team1}</span>
+                <span class="vs">-</span>
+                <span class="team-name">${item.team2}</span>
+                <img src="${item.logo2}" alt="${item.team2}" class="team-logo">
+              </div>
+            </div>
+            <div class="channel-buttons">
+              ${item.channels.map(ch => `<button data-url="${ch.url}">${ch.label}</button>`).join('')}
+            </div>
+          `;
+
+          const buttons = card.querySelectorAll('button');
+          buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+              setPlayerUrlProxy(btn.dataset.url);
+            });
+          });
+          container.appendChild(card);
+        }
+      });
+
+      tabDiv.appendChild(container);
+      tabContents.appendChild(tabDiv);
+      firstTab = false;
+    }
+  }
+
+  function openTab(tabName) {
+    document.querySelectorAll('.tab-menu button').forEach(btn => { btn.classList.toggle('active', btn.dataset.tab === tabName); });
+    document.querySelectorAll('.tab-content').forEach(div => { div.classList.toggle('active', div.id === tabName); });
+  }
+
+  loadJsonAndRender();
+</script>
+
+<hr class="pembatas" />
+
+<!--REFRESH TOMBOL-->
+<div style="margin: 10px 0px; display: flex; justify-content: center; gap: 5px; text-align: center;">
+  <button onclick="localStorage.removeItem('tvDataCache');refreshIframe()" style="background-color: #00008B; border: 2px solid orange; border-radius: 8px; box-shadow: rgba(1, 2, 3, 0.5) 0px 5px 6px; color: white; cursor: pointer; font-weight: bold; font-size: 12px; font-family: Cambria,Times New Roman,serif; padding: 8px 12px;">
+    <b>REFRESH TV</b>
+ </button>
+  <button onclick="localStorage.removeItem('tvDataCache');location.reload();" style="background-color: #00008B; border: 2px solid orange; border-radius: 8px; box-shadow: rgba(1, 2, 3, 0.5) 0px 5px 6px; color: white; cursor: pointer; font-weight: bold; font-size: 12px; font-family: Cambria,Times New Roman,serif; padding: 8px 12px;">
+    <b>REFRESH PAGE</b>
+  </button>
+</div>
+
+<!--Script untuk Refresh-->
+<script>
+  function refreshIframe() {
+    const iframe = document.getElementById("tvPlayer");
+    const currentSrc = iframe.src;
+    iframe.src = currentSrc; // Memuat ulang src iframe
+  }
+</script>
+  
+<!--KONTEN TAMBAHAN-->
+<div style="margin-top: 20px; font-size: 14px; font-weight: bold;">
+  <p>Download Aplikasi ChenxTV disini 👇👇</p>
+</div>
+  
+<!-- Download Apk -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+<button type="button" class="css-button">
+	<span class="css-button-icon">
+		<i class="fa fa-android"></i>
+	</span>
+	<span class="css-button-text">
+		<span><a href="https://www.mediafire.com/file/fsfin7y42mleyz1/ChenxTV.apk/file" target="_blank">Download APK</a></span>
+	</span>
+</button>
+  
+<style>
+.css-button {
+	color: #332e2e;
+	font-size: 16px;
+	border-radius: 5px;
+	border: solid 0px #e3e330;
+	text-shadow: 1px 1px 0px #a3a3a3;
+	box-shadow: 0px 10px 14px -7px #616174;
+	text-decoration: none;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	font-family: Arial;
+	font-weight: bold;
+	background: linear-gradient(180deg, #ffff00 10%, #e3e330 100%);
+	display: inline-flex;
+	align-items: center;
+	padding: 0;
+}
+.css-button:hover {
+	background: linear-gradient(180deg, #e3e330 10%, #ffff00 100%);
+}
+.css-button-text {
+	position: relative;
+	padding: 10px 18px;
+}
+.css-button-icon {
+	position: relative;
+	border-right: 1px solid #ffffff29;
+	box-shadow: inset rgb(0 0 0 / 14%) -1px 0 0;
+	padding: 10px 10px;
+}
+</style>
+  
+</body>
+</html>
