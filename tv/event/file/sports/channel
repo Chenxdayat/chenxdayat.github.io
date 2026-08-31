@@ -1,5 +1,12 @@
 [
   {
+    "id": "euro1",
+    "name": "EURO 1",
+    "link": "https://dash2.antik.sk/stream/nvidia_eurosport1/playlist_cenc.mpd",
+    "api": "11223344556677889900112233445566:4b80724d0ef86bcb2c21f7999d67739d",
+    "type": "shaka"
+  },
+  {
     "id": "spotv1",
     "name": "SPOTV 1",
     "link": "https://qp-pldt-live-grp-11-prod.akamaized.net/out/u/dr_spotvhd.mpd",
