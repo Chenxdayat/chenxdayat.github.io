@@ -70,6 +70,69 @@
     "type": "shaka"
   },
   {
+    "id": "tsn1",
+    "name": "TSN 1",
+    "link": "https://mngbcg.b-cdn.net/TSN1/tracks-v1a1/mono.ts.m3u8",
+    "api": "",
+    "type": "shaka"
+  },
+  {
+    "id": "tsn2",
+    "name": "TSN 2",
+    "link": "https://mngbcg.b-cdn.net/TSN2/tracks-v1a1/mono.ts.m3u8",
+    "api": "",
+    "type": "shaka"
+  },
+  {
+    "id": "tsn3",
+    "name": "TSN 3",
+    "link": "https://mngbcg.b-cdn.net/TSN3/tracks-v1a1/mono.ts.m3u8",
+    "api": "",
+    "type": "shaka"
+  },
+  {
+    "id": "tsn4",
+    "name": "TSN 4",
+    "link": "https://mngbcg.b-cdn.net/TSN4/tracks-v1a1/mono.ts.m3u8",
+    "api": "",
+    "type": "shaka"
+  },
+  {
+    "id": "tsn5",
+    "name": "TSN 5",
+    "link": "https://mngbcg.b-cdn.net/TSN5/tracks-v1a1/mono.ts.m3u8",
+    "api": "",
+    "type": "shaka"
+  },
+  {
+    "id": "itv1",
+    "name": "ITV 1",
+    "link": "https://mngbcg.b-cdn.net/iTV1/tracks-v1a1/mono.ts.m3u8",
+    "api": "",
+    "type": "shaka"
+  },
+  {
+    "id": "itv2",
+    "name": "ITV 2",
+    "link": "https://mngbcg.b-cdn.net/iTV2/tracks-v1a1/mono.ts.m3u8",
+    "api": "",
+    "type": "shaka"
+  },
+  {
+    "id": "itv3",
+    "name": "ITV 3",
+    "link": "https://mngbcg.b-cdn.net/iTV3/tracks-v1a1/mono.ts.m3u8",
+    "api": "",
+    "type": "shaka"
+  },
+  {
+    "id": "itv4",
+    "name": "ITV 4",
+    "link": "https://mngbcg.b-cdn.net/iTV4/tracks-v1a1/mono.ts.m3u8",
+    "api": "",
+    "type": "shaka"
+  },
+  {
     "id": "yalla-stream",
     "name": "Yalla Shoot Alternatif",
     "link": "https://cricsfree.cfd",
