@@ -3,5 +3,15 @@
 #EXT-X-MEDIA-SEQUENCE:623
 #EXT-X-ALLOW-CACHE:YES
 #EXT-X-TARGETDURATION:10
-#EXTINF:10.000000,
-http://195.128.27.141:80/play/live.php?mac=00:1A:79:24:1B:18&stream=191873&extension=m3u8
+#EXTINF:4.000000,
+https://kimham3738393.global.ssl.fastly.net/androstreamlivebsm1_17535107636aac33115d1b4_seg_121814_001497.jpg
+#EXTINF:4.000000,
+https://kimham3738393.global.ssl.fastly.net/androstreamlivebsm1_17535107636aac33115d1b4_seg_121814_001498.jpg
+#EXTINF:4.000000,
+https://kimham3738393.global.ssl.fastly.net/androstreamlivebsm1_17535107636aac33115d1b4_seg_121814_001499.jpg
+#EXTINF:4.000000,
+https://kimham3738393.global.ssl.fastly.net/androstreamlivebsm1_17535107636aac33115d1b4_seg_121814_001500.jpg
+#EXTINF:4.000000,
+https://kimham3738393.global.ssl.fastly.net/androstreamlivebsm1_17535107636aac33115d1b4_seg_121814_001501.jpg
+#EXTINF:4.000000,
+https://kimham3738393.global.ssl.fastly.net/androstreamlivebsm1_17535107636aac33115d1b4_seg_121814_001502.jpg
